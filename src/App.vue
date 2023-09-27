@@ -1,11 +1,10 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <RouterView />
 </template>
 
 <script lang="js" setup>
+import { RouterView } from "vue-router";
 import vex from 'vex-js';
-import 'vex-js/dist/css/vex.css';
 import { onMounted } from 'vue';
 import HelloWorld from './components/HelloWorld.vue'
 
