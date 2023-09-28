@@ -20,6 +20,7 @@
           <div class="gift-section">
             <gift/>
           </div>
+          <!-- profile section start -->
           <div class="profile-container">
             <div class="profile-layout">
                 <userProfile class="profile-icon"/>
@@ -31,13 +32,14 @@
                             <div class="user-email">rai0909966gmaui.com</div>
                         </div>
                         <div class="logout-button-layout">
-                            <div class="logout-button">Logout</div>
+                            <div class="logout-button" @click="logOutFn">Logout</div>
                         </div>
                     </div>
                 </div>
                  <!-- popup section end -->
             </div>
           </div>
+          <!-- profile section end -->
         </div>
       </div>
     </div>
@@ -49,9 +51,16 @@ import gift from '@/components/svg/gift.vue';
 import info from '@/components/svg/info.vue';
 import star from '@/components/svg/star.vue';
 import userProfile from '@/components/svg/userProfile.vue';
-import {ref} from 'vue'
+import {useRouter} from 'vue-router'
 import { useMyStore } from '@/store';
 const store = useMyStore()
+const router = useRouter()
+
+const logOutFn = ()=>{
+    store.logOut().then(()=>{
+        router.push('/login')
+    })
+}
 
 
 </script>

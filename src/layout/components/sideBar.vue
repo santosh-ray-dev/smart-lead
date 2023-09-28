@@ -1,42 +1,118 @@
 <template>
-    <div class="side-bar-container">
-        <div class="side-bar-layout">
-            <div class="router-nav-layout">
-                <div class="route-link-layout">
-                    <div class="route-icon"></div>
-                    <div class="route-name"></div>
-                </div>
-
-            </div>
-            <div class="other-links-layout">
-
-            </div>
-
+  <div class="side-bar-container">
+    <div class="side-bar-layout">
+      <div class="router-nav-layout">
+        <!-- loop in routers to show the available nav link -->
+        <div
+          :class="{ 'active': routeData.meta.title == route.meta.title }"
+          class="route-link-layout"
+          v-for="(route, index) in allRoutes"
+          :key="index"
+          @click="GoToRoute(route)"
+        >
+          <div class="route-icon"><allLeadSvg /></div>
+          <div class="route-name">{{ route.meta.title }}</div>
         </div>
+      </div>
+      <div class="other-links-layout"></div>
     </div>
+  </div>
 </template>
 <script lang="js" setup>
-import {} from '../../router/index'
+//get route from router index file
+import {protectedRoute} from '../../router/index'
+import { computed, watch, ref } from 'vue';
+import allLeadSvg from '../../components/svg/allLead.vue'
+import emailCampaignsSvg from '../../components/svg/emailCampaigns.vue'
+import masterIndexSvg from '../../components/svg/masterIndex.vue'
+import {useRoute,useRouter} from 'vue-router'
+const router = useRouter()
+const routeData = useRoute()
+
+const activeName = ref(null)
+
+
+// find all meta from every children to get title and icon
+const allRoutes = computed(()=>{
+    var result = []
+    if(protectedRoute.length>0){
+         protectedRoute.forEach((item)=>{
+            result = [...result,...item.children.map((child)=>child)]
+        })
+        return result
+    }else{
+        return []
+    }
+})
+
+
+
+    // check current route active
+    // const activeName = computed(()=>{
+    //     if(route.meta.title){
+    //         return route.meta.title
+    //     }
+    //     return null
+
+    // })
+
+    //push route on nav click
+    const GoToRoute = (route)=>{
+        router.push(route.path)
+    }
+
+    //watch for route change detection 
+    watch(routeData, async (newValue, oldValue) => {
+        activeName.value = newValue.meta.title
+    })
 
 </script>
 <style lang="scss" scoped>
-.side-bar-container{
-    height: 100%;
-    .side-bar-layout{
-        width: 230px;
-        // height: 850px;
+.side-bar-container {
+  height: 100%;
+  .side-bar-layout {
+    width: 230px;
+    // height: 850px;
     height: 100vh;
 
-        
-        background: linear-gradient(0deg, #FFF 0%, #FFF 100%), #FFF;  
-        .router-nav-layout{
+    background: linear-gradient(0deg, #fff 0%, #fff 100%), #fff;
+    .router-nav-layout {
+      display: flex;
+      flex-direction: column;
+      .route-link-layout {
+        display: flex;
+        padding: 20px;
+        gap: 17px;
+        width: 230px;
+        height: 40px;
+        cursor: pointer;
 
-        } 
-        .other-links-layout{
-
-        } 
+        border-left: 3px solid #fff;
+        &.active {
+          background: rgba(117, 122, 233, 0.1);
+          border-left: 3px solid #757ae9;
+        }
+        &:hover {
+          background: rgba(117, 122, 233, 0.1);
+        }
+        .route-icon {
+          display: flex;
+          align-items: center;
+        }
+        .route-name {
+          display: flex;
+          align-items: center;
+          color: #282b42;
+          font-family: DM Sans;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
     }
-
+    .other-links-layout {
+    }
+  }
 }
-    
 </style>
