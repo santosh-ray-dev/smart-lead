@@ -8,18 +8,34 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      component: publicLayout,
+      component: authLayout,
+      meta: { requiresAuth: true },
+      required:"/email-campaigns",
       children:[
         {
-          path: "/",
-          name: "dashboard",
-          component: () => import("../views/DashboardView.vue"),
+          path: "/email-campaigns",
+          name: "emailCampaigns",
+          component: () => import("../views/EmailCampaigns.vue"),
+          meta: { requiresAuth: true, title:'Email Campaigns' },
+        },
+        {
+          path: "/all-lead",
+          name: "allLead",
+          component: () => import("../views/AllLead.vue"),
+          meta: { requiresAuth: true, title:'All Lead' },
+        },
+        {
+          path: "/master-index",
+          name: "masterIndex",
+          component: () => import("../views/MasterIndex.vue"),
+          meta: { requiresAuth: true, title:'Master Index' },
         },
       ]
     },
     {
       path: "/",
-      component: authLayout,
+      component: publicLayout,
+      meta: { requiresAuth: false },
       children:[
         {
           path: "/login",

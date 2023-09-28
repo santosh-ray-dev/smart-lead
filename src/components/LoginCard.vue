@@ -210,7 +210,7 @@ const passwordShowHideFn = (type) =>{
               cursor: pointer;
               padding: 12px;
               color: #686b8a;
-              font-family: " DM Sans";
+              font-family: "DM Sans";
               font-size: 14px;
               font-style: normal;
               font-weight: 400;

@@ -6,8 +6,8 @@ export const useMyStore = defineStore('myStore', {
     currentUser:null,
   }),
   actions: {
-    // login with id pass
     login(payload) {
+      console.table(userData)
       return new Promise((resolve, reject) => {
         const { email, password } = payload;
         

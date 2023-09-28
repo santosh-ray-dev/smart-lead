@@ -1,7 +1,7 @@
-<!-- GlobalSvgHandler.vue -->
 
 <template>
   <div v-if="svgContent" class="svg-icon" v-html="svgContent"></div>
+  
 </template>
 
 <script setup>
