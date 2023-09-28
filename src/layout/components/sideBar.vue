@@ -10,7 +10,9 @@
           :key="index"
           @click="GoToRoute(route)"
         >
-          <div class="route-icon"><allLeadSvg /></div>
+          <div v-if="route.meta.iconName=='allLeadSvg'" class="route-icon"><allLeadSvg :active="routeData.meta.title == route.meta.title" /></div>
+          <div v-if="route.meta.iconName=='emailCampaignsSvg'" class="route-icon"><emailCampaignsSvg :active="routeData.meta.title == route.meta.title" /></div>
+          <div  v-if="route.meta.iconName=='masterIndexSvg'" class="route-icon"><masterIndexSvg :active="routeData.meta.title == route.meta.title" /></div>
           <div class="route-name">{{ route.meta.title }}</div>
         </div>
       </div>
@@ -29,7 +31,7 @@ import {useRoute,useRouter} from 'vue-router'
 const router = useRouter()
 const routeData = useRoute()
 
-const activeName = ref(null)
+// const activeName = ref(null)
 
 
 // find all meta from every children to get title and icon
@@ -62,9 +64,9 @@ const allRoutes = computed(()=>{
     }
 
     //watch for route change detection 
-    watch(routeData, async (newValue, oldValue) => {
-        activeName.value = newValue.meta.title
-    })
+    // watch(routeData, async (newValue, oldValue) => {
+    //     activeName.value = newValue.meta.title
+    // })
 
 </script>
 <style lang="scss" scoped>

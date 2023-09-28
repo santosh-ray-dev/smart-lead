@@ -13,19 +13,19 @@ export const  protectedRoute=[
         path: "/email-campaigns",
         name: "emailCampaigns",
         component: () => import("../views/EmailCampaigns.vue"),
-        meta: { requiresAuth: true, title:'Email Campaigns',iconName:'emailCampaigns' },
+        meta: { requiresAuth: true, title:'Email Campaigns',iconName:'emailCampaignsSvg' },
       },
       {
         path: "/all-lead",
         name: "allLead",
         component: () => import("../views/AllLead.vue"),
-        meta: { requiresAuth: true, title:'All Lead',iconName:'allLead' },
+        meta: { requiresAuth: true, title:'All Lead',iconName:'allLeadSvg' },
       },
       {
         path: "/master-index",
         name: "masterIndex",
         component: () => import("../views/MasterIndex.vue"),
-        meta: { requiresAuth: true, title:'Master Index',iconName:'masterIndex' },
+        meta: { requiresAuth: true, title:'Master Index',iconName:'masterIndexSvg' },
       },
     ]
   },
