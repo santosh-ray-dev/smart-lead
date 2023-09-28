@@ -15,28 +15,28 @@
             <div class="text">Trail expires in 12 days</div>
           </div>
           <div class="info-section">
-            <info/>
+            <info />
           </div>
           <div class="gift-section">
-            <gift/>
+            <gift />
           </div>
           <!-- profile section start -->
           <div class="profile-container">
             <div class="profile-layout">
-                <userProfile class="profile-icon"/>
-                <!-- popup section start -->
-                <div class="popup-container popup-show">
-                    <div class="popup-layout">
-                        <div class="user-info">
-                            <div class="user-icon"> <userProfile/></div>
-                            <div class="user-email">rai0909966gmaui.com</div>
-                        </div>
-                        <div class="logout-button-layout">
-                            <div class="logout-button" @click="logOutFn">Logout</div>
-                        </div>
-                    </div>
+              <userProfile class="profile-icon" />
+              <!-- popup section start -->
+              <div class="popup-container popup-show">
+                <div class="popup-layout">
+                  <div class="user-info">
+                    <div class="user-icon"><userProfile /></div>
+                    <div class="user-email">rai0909966gmaui.com</div>
+                  </div>
+                  <div class="logout-button-layout">
+                    <div class="logout-button" @click="logOutFn">Logout</div>
+                  </div>
                 </div>
-                 <!-- popup section end -->
+              </div>
+              <!-- popup section end -->
             </div>
           </div>
           <!-- profile section end -->
@@ -57,12 +57,9 @@ const store = useMyStore()
 const router = useRouter()
 
 const logOutFn = ()=>{
-    store.logOut().then(()=>{
-        router.push('/login')
-    })
+    store.logOut()
+    router.push('/login')
 }
-
-
 </script>
 <style lang="scss" scoped>
 .header-container {
@@ -78,12 +75,11 @@ const logOutFn = ()=>{
     align-items: center;
     justify-content: space-between;
     padding: 0px 20px;
-    .logo-svg {
-    }
+
     .trail-profile-layout {
-        display: flex;
-        gap:20px;
-        align-items: center;
+      display: flex;
+      gap: 20px;
+      align-items: center;
       .trail-layout {
         cursor: pointer;
         display: inline-flex;
@@ -93,9 +89,7 @@ const logOutFn = ()=>{
         gap: 10px;
         border-radius: 46px;
         background: rgba(255, 255, 255, 0.2);
-        .star-svg {
 
-        }
         .text {
           color: #fff;
           font-family: DM Sans;
@@ -112,71 +106,65 @@ const logOutFn = ()=>{
         cursor: pointer;
       }
       .profile-container {
-        
         .profile-layout {
-            .popup-show{
-                display: none;
+          .popup-show {
+            display: none;
+          }
+          cursor: pointer;
+          position: relative;
+          &:hover {
+            .popup-show {
+              display: flex;
             }
-            cursor: pointer;
-            position: relative;
-            &:hover{
-                .popup-show{
-                    display: flex;
+          }
+          .popup-container {
+            position: absolute;
+            right: 1px;
+            .popup-layout {
+              background: #fff;
+              width: 200px;
+              height: 120px;
+              border-radius: 4px;
+              box-shadow: 0px 2px 1px 0 #0000;
+              display: flex;
+              flex-direction: column;
+              padding: 20px;
+              justify-content: space-around;
+              animation: expand 0.1s ease;
+
+              @keyframes expand {
+                from {
+                  height: 0;
                 }
-            }
-            .popup-container{
-                position: absolute;
-                right: 1px;
-                .popup-layout{
-                    background: #fff;
-                    width: 200px;
-                    height: 120px;
-                    border-radius: 4px;
-                    box-shadow: 0px 2px 1px 0 #0000;
-                    display: flex;
-                    flex-direction: column;
-                    padding: 20px;
-                    justify-content: space-around;
-                    animation: expand .1s ease;
-
-                    @keyframes expand {
-                        from{
-                            height: 0;
-                        }
-                        to{
-                            height: 120px;
-                        }
-                    }
-                    .user-info{
-                        display: flex;
-                        flex-direction: column;
-                        .user-icon{
-                            display: flex;
-                            justify-content: center;
-                        }
-                        .user-email{
-                            font-size: 12px;
-                        }
-                    }
-                    .logout-button-layout{
-                        height: 20px;
-                        background:#757AE9;
-                        border-radius: 5px ;
-                        &:hover{
-                            background: #00056a;
-                        }
-                        .logout-button{
-                            font-size: 12px;
-                            color: #fff;
-
-
-                        }
-
-                    }
-
+                to {
+                  height: 120px;
                 }
-
+              }
+              .user-info {
+                display: flex;
+                flex-direction: column;
+                .user-icon {
+                  display: flex;
+                  justify-content: center;
+                }
+                .user-email {
+                  font-size: 12px;
+                }
+              }
+              .logout-button-layout {
+                height: 20px;
+                background: #757ae9;
+                border-radius: 5px;
+                &:hover {
+                  background: #00056a;
+                }
+                .logout-button {
+                  font-size: 12px;
+                  color: #fff;
+                }
+              }
             }
+          }
         }
       }
     }

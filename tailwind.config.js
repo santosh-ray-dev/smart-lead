@@ -11,6 +11,8 @@ module.exports = {
         positive:"#6CCB4B",
         negative: "#CB4B4B",
         warning: "#FBC61E",
+        secondary:'#6e58f1',
+        replied:'#51C1C1',
 
       },
     },

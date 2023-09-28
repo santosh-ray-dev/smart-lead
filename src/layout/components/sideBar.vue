@@ -4,15 +4,31 @@
       <div class="router-nav-layout">
         <!-- loop in routers to show the available nav link -->
         <div
-          :class="{ 'active': routeData.meta.title == route.meta.title }"
+          :class="{ active: routeData.meta.title == route.meta.title }"
           class="route-link-layout"
           v-for="(route, index) in allRoutes"
           :key="index"
           @click="GoToRoute(route)"
         >
-          <div v-if="route.meta.iconName=='allLeadSvg'" class="route-icon"><allLeadSvg :active="routeData.meta.title == route.meta.title" /></div>
-          <div v-if="route.meta.iconName=='emailCampaignsSvg'" class="route-icon"><emailCampaignsSvg :active="routeData.meta.title == route.meta.title" /></div>
-          <div  v-if="route.meta.iconName=='masterIndexSvg'" class="route-icon"><masterIndexSvg :active="routeData.meta.title == route.meta.title" /></div>
+          <div v-if="route.meta.iconName == 'allLeadSvg'" class="route-icon">
+            <allLeadSvg :active="routeData.meta.title == route.meta.title" />
+          </div>
+          <div
+            v-if="route.meta.iconName == 'emailCampaignsSvg'"
+            class="route-icon"
+          >
+            <emailCampaignsSvg
+              :active="routeData.meta.title == route.meta.title"
+            />
+          </div>
+          <div
+            v-if="route.meta.iconName == 'masterIndexSvg'"
+            class="route-icon"
+          >
+            <masterIndexSvg
+              :active="routeData.meta.title == route.meta.title"
+            />
+          </div>
           <div class="route-name">{{ route.meta.title }}</div>
         </div>
       </div>
@@ -23,7 +39,7 @@
 <script lang="js" setup>
 //get route from router index file
 import {protectedRoute} from '../../router/index'
-import { computed, watch, ref } from 'vue';
+import { computed } from 'vue';
 import allLeadSvg from '../../components/svg/allLead.vue'
 import emailCampaignsSvg from '../../components/svg/emailCampaigns.vue'
 import masterIndexSvg from '../../components/svg/masterIndex.vue'
@@ -47,34 +63,16 @@ const allRoutes = computed(()=>{
     }
 })
 
-
-
-    // check current route active
-    // const activeName = computed(()=>{
-    //     if(route.meta.title){
-    //         return route.meta.title
-    //     }
-    //     return null
-
-    // })
-
     //push route on nav click
     const GoToRoute = (route)=>{
         router.push(route.path)
     }
-
-    //watch for route change detection 
-    // watch(routeData, async (newValue, oldValue) => {
-    //     activeName.value = newValue.meta.title
-    // })
-
 </script>
 <style lang="scss" scoped>
 .side-bar-container {
   height: 100%;
   .side-bar-layout {
     width: 230px;
-    // height: 850px;
     height: 100vh;
 
     background: linear-gradient(0deg, #fff 0%, #fff 100%), #fff;
@@ -112,8 +110,6 @@ const allRoutes = computed(()=>{
           line-height: normal;
         }
       }
-    }
-    .other-links-layout {
     }
   }
 }

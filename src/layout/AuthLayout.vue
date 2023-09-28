@@ -39,9 +39,11 @@ import { RouterView } from "vue-router";
         .side-bar-and-router-layout{
             display: flex;
             .side-bar-section{
+                width: 230px;
 
             }
             .router-view-section{
+                width: 100%;
 
             }
 

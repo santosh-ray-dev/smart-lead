@@ -16,18 +16,34 @@
             </div>
             <input class="input" v-model="form.email" />
           </div>
-           <!-- email input start -->
+          <!-- email input start -->
 
-           <!-- email input start -->
+          <!-- email input start -->
           <div class="input-layout">
             <div class="label-layout">
               <div class="label-text">Password</div>
               <div class="forgot-pass-text">Forgot Password?</div>
             </div>
             <div class="input-with-show-button">
-              <input :type="otherVariables.passwordInputType" v-model="form.password" />
-              <div v-if="otherVariables.passwordInputType == 'password'" class="show-text-button" @click="passwordShowHideFn('show')">Show</div>
-              <div v-else class="show-text-button" @click="passwordShowHideFn('hide')">Hide</div>
+              <input
+                :type="otherVariables.passwordInputType"
+                v-model="form.password"
+                @keyup.enter="login"
+              />
+              <div
+                v-if="otherVariables.passwordInputType == 'password'"
+                class="show-text-button"
+                @click="passwordShowHideFn('show')"
+              >
+                Show
+              </div>
+              <div
+                v-else
+                class="show-text-button"
+                @click="passwordShowHideFn('hide')"
+              >
+                Hide
+              </div>
             </div>
           </div>
           <!-- email input start -->
@@ -36,8 +52,8 @@
 
         <div class="card-footer">
           <!-- sign-in button -->
-          <div class="button-layout">
-            <div class="button" @click="login">Sign in</div>
+          <div class="button-layout" @click="login">
+            <div class="button">Sign in</div>
           </div>
           <!-- sign-in button -->
         </div>
@@ -71,9 +87,9 @@ const otherVariables = ref({
 
 })
 
-//for login 
+//for login
 const login = ()=>{
-  //prevent for the repeated call check loading 
+  //prevent for the repeated call check loading
   if(!otherVariables.value.loading){
       otherVariables.value.loading = true;
     //check form validation
@@ -81,7 +97,7 @@ const login = ()=>{
       store.login(form.value).then((res)=>{
         console.info(res);
         otherVariables.value.loading = false
-        router.push('/dashboard')
+        router.push('/')
 
       }).catch((err)=>{
         otherVariables.value.loading = false
@@ -90,7 +106,7 @@ const login = ()=>{
 
     }else{
       otherVariables.value.loading = false
-      // push err 
+      // push err
       if(!form.value.email) formError.value.email = 'Please Enter Email'
       if(!form.value.password) formError.value.password = 'Please Enter password'
   }
@@ -98,7 +114,7 @@ const login = ()=>{
   }else{
     return
   }
-  
+
 
 }
 
@@ -110,7 +126,6 @@ const passwordShowHideFn = (type) =>{
     otherVariables.value.passwordInputType = 'password'
   }
 }
-
 </script>
 <style lang="scss" scoped>
 .login-container {
@@ -164,7 +179,7 @@ const passwordShowHideFn = (type) =>{
               font-size: 14px;
               font-style: normal;
               font-weight: 400;
-              line-height: 24px; 
+              line-height: 24px;
             }
             .forgot-pass-text {
               color: #757ae9;
@@ -187,7 +202,6 @@ const passwordShowHideFn = (type) =>{
             border: 1px solid #c6c7db;
             background: #fff;
             padding: 10px;
-
           }
           .input-with-show-button {
             display: flex;
@@ -196,8 +210,7 @@ const passwordShowHideFn = (type) =>{
             border-radius: 3px;
             border: 1px solid #c6c7db;
             background: #fff;
-            &:focus {
-            }
+
             input {
               width: 100%;
               padding: 10px;
