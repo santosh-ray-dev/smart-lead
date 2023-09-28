@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h1>this is public Layout </h1>
+        <PublicHeader/>
         <RouterView />
-
     </div>
     
 </template>
 <script lang="js" setup>
+import PublicHeader from './components/PublicHeader.vue'
 import { RouterView } from "vue-router";
 
 

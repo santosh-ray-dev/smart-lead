@@ -1,17 +1,38 @@
-// store.js
-
 import { defineStore } from 'pinia';
+import userData from "@/user.json"
 
 export const useMyStore = defineStore('myStore', {
   state: () => ({
-    count: 1,
+    currentUser:null,
   }),
   actions: {
-    increment() {
-      this.count++;
+    // login with id pass
+    login(payload) {
+      return new Promise((resolve, reject) => {
+        const { email, password } = payload;
+        
+        if (!email || !password) {
+          reject('Email and password are required');
+          return;
+        }
+    
+        const findUser = userData.find((user) => user.email === email);
+    
+        if (!findUser) {
+          reject('User not found');
+          return;
+        }
+    
+        if (findUser.password === password) {
+          this.currentUser = findUser;
+          resolve(findUser);
+        } else {
+          reject('Incorrect password');
+        }
+      });
     },
-    decrement() {
-      this.count--;
+    
+    logOut() {
     },
   },
 });
