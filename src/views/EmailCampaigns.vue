@@ -262,15 +262,16 @@ console.table(emailCamsData)
         
         .search {
             display: flex;
-            gap:2px;
+            gap:7px;
             align-items: center;
-            padding: 5px;
+            padding: 10px;
             height: 36px;
          
           border-radius: 3px;
           border: 1px solid #e5e7f9;
           background: #fafaff;
           input{
+            background: #fafaff;
             
             
           }
