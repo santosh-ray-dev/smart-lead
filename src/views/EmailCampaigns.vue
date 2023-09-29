@@ -345,7 +345,7 @@ console.table(emailCamsData)
           background: #e9ebf9;
           align-items: center;
           padding: 10px;
-          gap: 22px;
+          gap: 50px;
           .column {
           }
           .checkbox {
@@ -379,6 +379,7 @@ console.table(emailCamsData)
           background: #fff;
           box-shadow: 0px 2px 10px 0px rgba(20, 20, 20, 0.05);
           margin-bottom: 3px;
+          justify-content: space-around;
           .row {
             .progress-circle {
                 width: 41px;
