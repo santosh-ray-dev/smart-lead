@@ -120,7 +120,7 @@
                       `${data.company_detail.status} on ${data.company_detail.date}`
                     }}
                   </div>
-                  <div>|</div>
+                  <div style="color:#999BA8">|</div>
                   <div class="sequence">
                     {{ `${data.company_detail.sequence} Sequence` }}
                   </div>
@@ -434,10 +434,31 @@ console.table(emailCamsData)
                   background-color: #5eca39;
                 }
                 .sent-on-date {
+                    color: #282B42;
+                    font-family: DM Sans;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    opacity: 0.6;
                 }
                 .divider {
+                    color: #282B42;
+                    font-family: DM Sans;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    opacity: 0.6;
                 }
                 .sequence {
+                    color: #282B42;
+                    font-family: DM Sans;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    opacity: 0.6;
                 }
               }
             }
@@ -454,7 +475,7 @@ console.table(emailCamsData)
                 line-height: normal;
                 gap:3px;
                 .sent-percentage {
-                  color: #282b42;
+                  color: #999BA8;
                   font-family: DM Sans;
                   font-size: 12px;
                   font-style: normal;
@@ -465,7 +486,7 @@ console.table(emailCamsData)
                 }
               }
               .sent-text {
-                color: #282b42;
+                color: #999BA8;
                 font-family: DM Sans;
                 font-size: 14px;
                 text-align: start;
