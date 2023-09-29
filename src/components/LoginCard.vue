@@ -14,7 +14,7 @@
             <div class="label-layout">
               <div class="label-text">Email</div>
             </div>
-            <input class="input" v-model="form.email" />
+            <input :class="{'error-input':formError.email!=null}" class="input" v-model="form.email" @change="changeEmail" />
           </div>
           <!-- email input start -->
 
@@ -24,11 +24,12 @@
               <div class="label-text">Password</div>
               <div class="forgot-pass-text">Forgot Password?</div>
             </div>
-            <div class="input-with-show-button">
+            <div class="input-with-show-button" :class="{'error-input':formError.password!=null}">
               <input
                 :type="otherVariables.passwordInputType"
                 v-model="form.password"
                 @keyup.enter="login"
+                @change="changePassword"
               />
               <div
                 v-if="otherVariables.passwordInputType == 'password'"
@@ -80,6 +81,19 @@ const formError = ref({
   password:null
 })
 
+const changeEmail = (event)=>{
+  if(event !== ''){
+    formError.value.email = null
+  }
+}
+
+const changePassword = (event)=>{
+  if(event !== ''){
+    formError.value.password = null
+  }
+}
+
+
 //all valuables here
 const otherVariables = ref({
   loading:false,
@@ -107,8 +121,8 @@ const login = ()=>{
     }else{
       otherVariables.value.loading = false
       // push err
-      if(!form.value.email) formError.value.email = 'Please Enter Email'
-      if(!form.value.password) formError.value.password = 'Please Enter password'
+      if(form.value.email == "" || form.value.email==null ) formError.value.email = 'Please Enter Email'
+      if(form.value.password == "" || form.value.password == null) formError.value.password = 'Please Enter password'
   }
 
   }else{
@@ -128,6 +142,9 @@ const passwordShowHideFn = (type) =>{
 }
 </script>
 <style lang="scss" scoped>
+.error-input{
+  border: 1px solid red !important;
+}
 .login-container {
   .login-layout {
     .login-card {
