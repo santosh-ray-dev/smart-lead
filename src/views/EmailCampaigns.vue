@@ -4,7 +4,7 @@
       <!-- header section start -->
       <div class="email-camp-header-section">
         <div class="title-section-count">
-          {{ `All Campaigns (${24})` }}
+          {{ `All Campaigns (${emailCamsData.length})` }}
         </div>
         <div class="search-add-camp-button-layout">
           <div class="search">

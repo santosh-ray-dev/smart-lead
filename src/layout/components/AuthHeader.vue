@@ -29,7 +29,7 @@
                 <div class="popup-layout">
                   <div class="user-info">
                     <div class="user-icon"><userProfile /></div>
-                    <div class="user-email">rai0909966gmaui.com</div>
+                    <div class="user-email">{{ getUserEmail }}</div>
                   </div>
                   <div class="logout-button-layout">
                     <div class="logout-button" @click="logOutFn">Logout</div>
@@ -53,6 +53,7 @@ import star from '@/components/svg/star.vue';
 import userProfile from '@/components/svg/userProfile.vue';
 import {useRouter} from 'vue-router'
 import { useMyStore } from '@/store';
+import { computed } from 'vue';
 const store = useMyStore()
 const router = useRouter()
 
@@ -60,6 +61,37 @@ const logOutFn = ()=>{
     store.logOut()
     router.push('/login')
 }
+
+const getCookie_ = (cookieName) => {
+  let cookies = document.cookie.split(';')
+  // Loop through the cookies to find the one with the specified name
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim() // Trim any leading/trailing spaces
+    const cookieParts = cookie.split('=')
+
+    // Check if the cookie name matches the input cookieName
+    if (cookieParts[0] === cookieName) {
+      // Return the cookie value
+      return cookieParts[1]
+    }
+  }
+
+  // If the cookie with the specified name is not found, return null
+  return null
+}
+
+//getting user email from store if not in store get from cookies other return default
+const getUserEmail =  computed(()=>{
+  if(store.currentUser){
+    return store.currentUser.email
+  }
+
+  if(getCookie_('user')){
+    return JSON.parse(getCookie_('user')).email
+  }
+
+  return 'test@gmail.com'
+})
 </script>
 <style lang="scss" scoped>
 .header-container {
