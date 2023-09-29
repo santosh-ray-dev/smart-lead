@@ -344,7 +344,7 @@ console.table(emailCamsData)
           background: #e9ebf9;
           align-items: center;
           padding: 10px;
-          gap: 10px;
+          gap: 22px;
           .column {
           }
           .checkbox {
