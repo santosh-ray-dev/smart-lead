@@ -10,12 +10,7 @@ export const protectedRoute = [
     meta: { requiresAuth: true },
     redirect: "/email-campaigns",
     children: [
-      {
-        path: "/email-campaigns",
-        name: "emailCampaigns",
-        component: () => import("../views/EmailCampaigns.vue"),
-        meta: { requiresAuth: true, title: 'Email Campaigns', iconName: 'emailCampaignsSvg' },
-      },
+      
       {
         path: "/all-lead",
         name: "allLead",
@@ -27,6 +22,12 @@ export const protectedRoute = [
         name: "masterIndex",
         component: () => import("../views/MasterIndex.vue"),
         meta: { requiresAuth: true, title: 'Master Index', iconName: 'masterIndexSvg' },
+      },
+      {
+        path: "/email-campaigns",
+        name: "emailCampaigns",
+        component: () => import("../views/EmailCampaigns.vue"),
+        meta: { requiresAuth: true, title: 'Email Campaigns', iconName: 'emailCampaignsSvg' },
       },
     ]
   },
