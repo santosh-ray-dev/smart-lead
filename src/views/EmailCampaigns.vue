@@ -245,6 +245,7 @@ console.table(emailCamsData)
       align-items: center;
       justify-content: space-between;
       background: linear-gradient(0deg, #fff 0%, #fff 100%), #fff;
+      box-shadow: 0px 2px 4px 0px rgba(141, 143, 169, 0.10);
       .title-section-count {
         color: #282b42;
         font-family: DM Sans;
