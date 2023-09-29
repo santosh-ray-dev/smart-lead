@@ -253,6 +253,7 @@ console.table(emailCamsData)
       .search-add-camp-button-layout {
         display: flex;
         gap: 29px;
+        
         .search {
           height: 36px;
           border-radius: 3px;

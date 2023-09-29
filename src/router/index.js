@@ -72,10 +72,13 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   console.log(getCookie_('user'));
-  let loggedIn = useMyStore().currentUser && getCookie_('user')!=undefined;
+  let loggedIn = useMyStore().currentUser || getCookie_('user')!=undefined;
   if (to.meta.requiresAuth && !loggedIn) {
     next({ name: "login" });
   } else {
+    if(to.path == '/login'){
+      next({ path: "/" });
+    }
     next();
   }
 })
