@@ -268,6 +268,7 @@ console.table(emailCamsData)
       .search-add-camp-button-layout {
         display: flex;
         gap: 29px;
+       
 
         .search {
           display: flex;
@@ -275,6 +276,7 @@ console.table(emailCamsData)
           align-items: center;
           padding: 10px;
           height: 36px;
+          width: 264px;
           color: #9699b0;
           font-family: DM Sans;
           font-size: 14px;
