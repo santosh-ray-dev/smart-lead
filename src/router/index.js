@@ -72,17 +72,29 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log(getCookie_('user'));
-  let loggedIn = useMyStore().currentUser || getCookie_('user')!=undefined;
+  const store = useMyStore(); // Replace with your actual store name
+
+  console.log('User from store:', store.currentUser);
+  console.log('User from cookie:', getCookie_('user'));
+
+  const loggedIn =
+    (store.currentUser !== null && store.currentUser !== undefined) ||
+    (getCookie_('user') !== undefined && getCookie_('user') !== null);
+
+  console.log('loggedIn:', loggedIn);
+  console.log('requiresAuth:', to.meta.requiresAuth);
+
   if (to.meta.requiresAuth && !loggedIn) {
+    console.log('Redirecting to login because requiresAuth and not logged in');
     next({ name: "login" });
+  } else if (loggedIn && to.path === '/login') {
+    console.log('Redirecting to home because user is logged in and trying to access login page');
+    next({ path: "/" });
   } else {
-    if(to.path == '/login'){
-      next({ path: "/" });
-    }
+    console.log('Navigating to the requested page');
     next();
   }
-})
+});
 
 
 
