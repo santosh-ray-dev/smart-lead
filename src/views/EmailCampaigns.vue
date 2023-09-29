@@ -60,8 +60,8 @@
               <input type="checkbox" />
             </div>
             <div class="row row-gap column1-width">
-              <!-- <div class="progress-circle">
-                <div class="circular">
+              <div class="progress-circle">
+                <!-- <div class="circular">
                     <div class="inner">
                     </div>
                     <div class="outer">
@@ -81,9 +81,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
+                <div class="text">30%</div>
              
-              </div> -->
+              </div>
               <div class="other-detail-layout">
                 <div class="clint-name-go-to-button">
                   <div class="clint-name">
@@ -373,19 +374,38 @@ console.table(emailCamsData)
         ._table-row {
           display: flex;
           align-items: center;
-          justify-content: space-between;
-          gap: 20px;
+          gap: 22px;
           padding: 25px 10px;
           background: #fff;
           box-shadow: 0px 2px 10px 0px rgba(20, 20, 20, 0.05);
           margin-bottom: 3px;
           .row {
             .progress-circle {
+                width: 41px;
+                height: 41px;
+                border: 5px solid #E5E8F7;
+                border-radius:50px ;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                .text{
+                    opacity: 0.6;
+                    color: #282B42;
+                    text-align: center;
+                    font-family: DM Sans;
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+
             }
             .other-detail-layout {
               display: flex;
               flex-direction: column;
               gap: 8px;
+              
               .clint-name-go-to-button {
                 display: flex;
                 .clint-name {
@@ -480,6 +500,7 @@ console.table(emailCamsData)
     display: flex;
     gap: 20px;
     align-items: center;
+    width: 400px;
   }
 }
 </style>
