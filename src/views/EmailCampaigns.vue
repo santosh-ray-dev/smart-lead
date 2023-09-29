@@ -4,11 +4,13 @@
       <!-- header section start -->
       <div class="email-camp-header-section">
         <div class="title-section-count">
-            <div>
-                
-          {{ `All Campaigns (${emailCamsData.length})` }}
-            </div>
-            <div style="width: 39px;height:4px;border-radius: 10px 10px 0px 0px;" class="bg-primary"></div>
+          <div>
+            {{ `All Campaigns (${emailCamsData.length})` }}
+          </div>
+          <div
+            style="width: 39px; height: 4px; border-radius: 10px 10px 0px 0px"
+            class="bg-primary"
+          ></div>
         </div>
         <div class="search-add-camp-button-layout">
           <div class="search">
@@ -256,8 +258,8 @@ console.table(emailCamsData)
     .email-camp-header-section {
       display: flex;
       height: 60px;
-    //   padding: 10px 20px;
-    padding: 0px 20px;;
+      //   padding: 10px 20px;
+      padding: 0px 20px;
       align-items: center;
       justify-content: space-between;
       background: linear-gradient(0deg, #fff 0%, #fff 100%), #fff;
@@ -265,7 +267,7 @@ console.table(emailCamsData)
       .title-section-count {
         display: flex;
         align-items: center;
-        gap:15px;
+        gap: 15px;
         justify-content: flex-end;
         flex-direction: column;
         height: 100%;
@@ -279,7 +281,6 @@ console.table(emailCamsData)
       .search-add-camp-button-layout {
         display: flex;
         gap: 29px;
-       
 
         .search {
           display: flex;
