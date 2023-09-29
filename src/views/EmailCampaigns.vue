@@ -316,7 +316,7 @@ console.table(emailCamsData)
           background: #6e58f1;
           display: flex;
           align-items: center;
-          padding: 10px;
+          padding: 8px 15px;
           &:hover {
             background: #00056a;
           }
