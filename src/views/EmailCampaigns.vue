@@ -8,9 +8,20 @@
         </div>
         <div class="search-add-camp-button-layout">
           <div class="search">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0.97968 6.98747C0.97968 3.66946 3.66946 0.97968 6.98747 0.97968C10.3055 0.97968 12.9953 3.66946 12.9953 6.98747C12.9953 10.3055 10.3055 12.9953 6.98747 12.9953C3.66946 12.9953 0.97968 10.3055 0.97968 6.98747ZM6.98747 0C3.1284 0 0 3.1284 0 6.98747C0 10.8465 3.1284 13.9749 6.98747 13.9749C8.74071 13.9749 10.3431 13.3292 11.5699 12.2626L15.1638 15.8565C15.3551 16.0478 15.6652 16.0478 15.8565 15.8565C16.0478 15.6652 16.0478 15.3551 15.8565 15.1638L12.2626 11.5699C13.3292 10.3431 13.9749 8.74071 13.9749 6.98747C13.9749 3.1284 10.8465 0 6.98747 0Z" fill="#696D8B"/>
-</svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0.97968 6.98747C0.97968 3.66946 3.66946 0.97968 6.98747 0.97968C10.3055 0.97968 12.9953 3.66946 12.9953 6.98747C12.9953 10.3055 10.3055 12.9953 6.98747 12.9953C3.66946 12.9953 0.97968 10.3055 0.97968 6.98747ZM6.98747 0C3.1284 0 0 3.1284 0 6.98747C0 10.8465 3.1284 13.9749 6.98747 13.9749C8.74071 13.9749 10.3431 13.3292 11.5699 12.2626L15.1638 15.8565C15.3551 16.0478 15.6652 16.0478 15.8565 15.8565C16.0478 15.6652 16.0478 15.3551 15.8565 15.1638L12.2626 11.5699C13.3292 10.3431 13.9749 8.74071 13.9749 6.98747C13.9749 3.1284 10.8465 0 6.98747 0Z"
+                fill="#696D8B"
+              />
+            </svg>
             <input placeholder="Search Campaigns" />
           </div>
           <div class="button-layout">
@@ -102,7 +113,7 @@
                       `${data.company_detail.status} on ${data.company_detail.date}`
                     }}
                   </div>
-                  <div >|</div>
+                  <div>|</div>
                   <div class="sequence">
                     {{ `${data.company_detail.sequence} Sequence` }}
                   </div>
@@ -117,7 +128,7 @@
 
               <div class="sent">
                 <div class="sent-number text-warning">
-                  520 <span class="sent-percentage ">19.6%</span>
+                  520 <span class="sent-percentage">19.6%</span>
                 </div>
                 <div class="sent-text">Clicked</div>
               </div>
@@ -245,7 +256,7 @@ console.table(emailCamsData)
       align-items: center;
       justify-content: space-between;
       background: linear-gradient(0deg, #fff 0%, #fff 100%), #fff;
-      box-shadow: 0px 2px 4px 0px rgba(141, 143, 169, 0.10);
+      box-shadow: 0px 2px 4px 0px rgba(141, 143, 169, 0.1);
       .title-section-count {
         color: #282b42;
         font-family: DM Sans;
@@ -257,23 +268,31 @@ console.table(emailCamsData)
       .search-add-camp-button-layout {
         display: flex;
         gap: 29px;
-       
-        
-        
+
         .search {
-            display: flex;
-            gap:7px;
-            align-items: center;
-            padding: 10px;
-            height: 36px;
-         
+          display: flex;
+          gap: 7px;
+          align-items: center;
+          padding: 10px;
+          height: 36px;
+          color: #9699b0;
+          font-family: DM Sans;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+
           border-radius: 3px;
           border: 1px solid #e5e7f9;
           background: #fafaff;
-          input{
+          input {
             background: #fafaff;
-            
-            
+            color: #9699b0;
+            font-family: DM Sans;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
           }
         }
         .button-layout {
@@ -350,9 +369,9 @@ console.table(emailCamsData)
             .progress-circle {
             }
             .other-detail-layout {
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
               .clint-name-go-to-button {
                 display: flex;
                 .clint-name {
@@ -388,9 +407,9 @@ console.table(emailCamsData)
               }
             }
             .sent {
-                display: flex;
-    flex-direction: column;
-    gap: 8px;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
               .sent-number {
                 font-family: DM Sans;
                 font-size: 20px;
@@ -423,7 +442,7 @@ console.table(emailCamsData)
           }
           .row3 {
             display: flex;
-            gap:12px;
+            gap: 12px;
             .action-button-layout {
               display: flex;
               align-items: center;
@@ -439,7 +458,7 @@ console.table(emailCamsData)
       }
     }
   }
-  .row-gap{
+  .row-gap {
     display: flex;
     gap: 20px;
     align-items: center;
@@ -449,95 +468,94 @@ console.table(emailCamsData)
 
 <style scoped>
 .circular {
-    height: 100px;
-    width: 100px;
-    position: relative;
+  height: 100px;
+  width: 100px;
+  position: relative;
 }
 .circular .inner,
 .circular .outer,
 .circular .circle {
-    position: absolute;
-    z-index: 6;
-    height: 100%;
-    width: 100%;
-    border-radius: 100%;
-    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 6;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 .circular .inner {
-    top: 50%;
-    left: 50%;
-    height: 80px;
-    width: 80px;
-    margin: -40px 0 0 -40px;
-    background-color: #DDE6F0;
-    border-radius: 100%;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  top: 50%;
+  left: 50%;
+  height: 80px;
+  width: 80px;
+  margin: -40px 0 0 -40px;
+  background-color: #dde6f0;
+  border-radius: 100%;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 .circular .circle {
-    z-index: 1;
-    box-shadow: none;
+  z-index: 1;
+  box-shadow: none;
 }
 .circular .numb {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    font-size: 18px;
-    font-weight: 500;
-    color: #4158D0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 18px;
+  font-weight: 500;
+  color: #4158d0;
 }
 .circular .bar {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: #fff;
-    -webkit-border-radius: 100%;
-    clip: rect(0px, 100px, 100px, 50px);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 100px, 100px, 50px);
 }
 .circle .bar .progress {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    -webkit-border-radius: 100%;
-    clip: rect(0px, 50px, 100px, 0px);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 50px, 100px, 0px);
 }
 .circle .bar .progress,
 .dot span {
-    background: #4158D0;
+  background: #4158d0;
 }
 .circle .left .progress {
-    z-index: 1;
-    animation: left 4s linear both;
+  z-index: 1;
+  animation: left 4s linear both;
 }
 @keyframes left {
-    100% {
-        transform: rotate(180deg);
-    }
+  100% {
+    transform: rotate(180deg);
+  }
 }
 .circle .right {
-    z-index: 3;
-    transform: rotate(180deg);
+  z-index: 3;
+  transform: rotate(180deg);
 }
 .circle .right .progress {
-    animation: right 4s linear both;
-    animation-delay: 4s;
+  animation: right 4s linear both;
+  animation-delay: 4s;
 }
 @keyframes right {
-    100% {
-        transform: rotate(180deg);
-    }
+  100% {
+    transform: rotate(180deg);
+  }
 }
 .circle .dot {
-    z-index: 2;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 50%;
-    height: 10px;
-    margin-top: -5px;
-    animation: dot 8s linear both;
-    transform-origin: 0% 50%;
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 10px;
+  margin-top: -5px;
+  animation: dot 8s linear both;
+  transform-origin: 0% 50%;
 }
-
 </style>
