@@ -304,7 +304,7 @@ console.table(emailCamsData)
           align-items: center;
           padding: 10px;
           &:hover {
-            background: #6e58f1;
+            background: #00056a;
           }
           .button {
             color: #fff;
