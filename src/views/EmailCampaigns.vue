@@ -43,7 +43,7 @@
               <input type="checkbox" />
             </div>
             <div class="row row-gap column1-width">
-              <div class="progress-circle">
+              <!-- <div class="progress-circle">
                 <div class="circular">
                     <div class="inner">
                     </div>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
              
-              </div>
+              </div> -->
               <div class="other-detail-layout">
                 <div class="clint-name-go-to-button">
                   <div class="clint-name">
@@ -102,7 +102,7 @@
                       `${data.company_detail.status} on ${data.company_detail.date}`
                     }}
                   </div>
-                  <div class="divider">|</div>
+                  <div >|</div>
                   <div class="sequence">
                     {{ `${data.company_detail.sequence} Sequence` }}
                   </div>
@@ -348,6 +348,9 @@ console.table(emailCamsData)
             .progress-circle {
             }
             .other-detail-layout {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
               .clint-name-go-to-button {
                 display: flex;
                 .clint-name {
@@ -383,6 +386,9 @@ console.table(emailCamsData)
               }
             }
             .sent {
+                display: flex;
+    flex-direction: column;
+    gap: 8px;
               .sent-number {
                 font-family: DM Sans;
                 font-size: 20px;
