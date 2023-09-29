@@ -425,11 +425,13 @@ console.table(emailCamsData)
               flex-direction: column;
               gap: 8px;
               .sent-number {
+                display: flex;
                 font-family: DM Sans;
                 font-size: 20px;
                 font-style: normal;
                 font-weight: 500;
                 line-height: normal;
+                gap:3px;
                 .sent-percentage {
                   color: #282b42;
                   font-family: DM Sans;
@@ -437,6 +439,8 @@ console.table(emailCamsData)
                   font-style: normal;
                   font-weight: 400;
                   line-height: normal;
+                  display: flex;
+                flex-direction: column-reverse;
                 }
               }
               .sent-text {
