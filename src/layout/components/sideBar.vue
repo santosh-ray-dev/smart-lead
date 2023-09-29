@@ -156,7 +156,8 @@ const allRoutes = computed(()=>{
     .router-nav-layout {
       display: flex;
       flex-direction: column;
-      padding-top: 10px;
+      padding-top: 15px;
+      gap: 10px;
       .route-link-layout {
         display: flex;
         padding: 20px;
